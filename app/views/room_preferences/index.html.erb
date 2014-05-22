@@ -1,0 +1,44 @@
+<div class="page-header">
+  <h1>Room preferences</h1>
+</div>
+
+<p><a href="/room_preferences/new" class="btn btn-primary">Add a New Room Preference</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Type one</th>
+      <th>Type two</th>
+      <th>Type three</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @room_preferences.each do |room_preference| %>
+      <tr>
+        <td><%= room_preference.type_one %></td>
+        <td><%= room_preference.type_two %></td>
+        <td><%= room_preference.type_three %></td>
+        <td>
+          <a href="/room_preferences/<%= room_preference.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/room_preferences/<%= room_preference.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_room_preference/<%= room_preference.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

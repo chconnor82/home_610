@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Edit User Style #<%= @user_style.id %></h1>
+</div>
+
+<% if @user_style.errors.any? %>
+  <% @user_style.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<form action="/update_user_style/<%= @user_style.id %>" class="form-horizontal">
+  <!-- Label and input for image_URL -->
+  <div class="form-group">
+    <label for="image_URL" class="col-sm-2 control-label">
+      Image url
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="image_URL" name="image_URL" placeholder="Image url" class="form-control" value="<%= @user_style.image_URL %>">
+    </div>
+  </div>
+
+  <!-- Label and input for name -->
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">
+      Name
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @user_style.name %>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Update User Style" class="btn btn-primary">
+    </div>
+  </div>
+</form>
